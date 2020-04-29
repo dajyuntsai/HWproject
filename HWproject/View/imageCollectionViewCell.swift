@@ -16,4 +16,9 @@ class imageCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var titleLabel: UILabel!
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.colorImageView.image = nil
+    }
+    
 }

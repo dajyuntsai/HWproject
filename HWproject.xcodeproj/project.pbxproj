@@ -17,6 +17,9 @@
 		5C0740232452168E005CBBA5 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0740222452168E005CBBA5 /* SecondViewController.swift */; };
 		5C07402724522B7C005CBBA5 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07402624522B7C005CBBA5 /* FirstViewController.swift */; };
 		5C07402924523721005CBBA5 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07402824523721005CBBA5 /* File.swift */; };
+		5C07402B24558E07005CBBA5 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07402A24558E07005CBBA5 /* DetailViewController.swift */; };
+		5C07402D24558E3C005CBBA5 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07402C24558E3C005CBBA5 /* DetailTableViewCell.swift */; };
+		5C07402F2455AAB9005CBBA5 /* FetchImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07402E2455AAB9005CBBA5 /* FetchImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		5C0740222452168E005CBBA5 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		5C07402624522B7C005CBBA5 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		5C07402824523721005CBBA5 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		5C07402A24558E07005CBBA5 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		5C07402C24558E3C005CBBA5 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		5C07402E2455AAB9005CBBA5 /* FetchImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,7 @@
 				5C07400D2451E3D9005CBBA5 /* ViewController.swift */,
 				5C07402624522B7C005CBBA5 /* FirstViewController.swift */,
 				5C0740222452168E005CBBA5 /* SecondViewController.swift */,
+				5C07402A24558E07005CBBA5 /* DetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -90,6 +97,7 @@
 			children = (
 				5C07400F2451E3D9005CBBA5 /* Main.storyboard */,
 				5C0740202452149B005CBBA5 /* imageCollectionViewCell.swift */,
+				5C07402C24558E3C005CBBA5 /* DetailTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -99,6 +107,7 @@
 			children = (
 				5C0740092451E3D9005CBBA5 /* AppDelegate.swift */,
 				5C07402824523721005CBBA5 /* File.swift */,
+				5C07402E2455AAB9005CBBA5 /* FetchImage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -174,13 +183,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C07402D24558E3C005CBBA5 /* DetailTableViewCell.swift in Sources */,
 				5C07400E2451E3D9005CBBA5 /* ViewController.swift in Sources */,
 				5C07400A2451E3D9005CBBA5 /* AppDelegate.swift in Sources */,
 				5C07402924523721005CBBA5 /* File.swift in Sources */,
+				5C07402F2455AAB9005CBBA5 /* FetchImage.swift in Sources */,
 				5C0740212452149B005CBBA5 /* imageCollectionViewCell.swift in Sources */,
 				5C07402724522B7C005CBBA5 /* FirstViewController.swift in Sources */,
 				5C0740232452168E005CBBA5 /* SecondViewController.swift in Sources */,
 				5C07400C2451E3D9005CBBA5 /* SceneDelegate.swift in Sources */,
+				5C07402B24558E07005CBBA5 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

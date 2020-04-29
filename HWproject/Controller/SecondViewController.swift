@@ -11,6 +11,8 @@ import UIKit
 class SecondViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
     var box: [Box] = []
+   
+    var fetchImage = FetchImage()
     
     
     override func viewDidLoad() {
@@ -20,7 +22,10 @@ class SecondViewController: UIViewController,UICollectionViewDelegate,UICollecti
         secondCollectionView.dataSource = self
         getData(url: urlString)
         
+        
     }
+    
+    
     
     @IBOutlet var secondCollectionView: UICollectionView!
     
@@ -34,10 +39,29 @@ class SecondViewController: UIViewController,UICollectionViewDelegate,UICollecti
         }
         cell.idLabel.text = String(box[indexPath.row].id)
         cell.titleLabel.text = box[indexPath.row].title
-        if indexPath.row % 2 == 0 {
-            cell.colorImageView.backgroundColor = .red
+        cell.tag = indexPath.row
+        fetchImage.loadImage(urlString: box[indexPath.row].thumbnailUrl) { (image) in
+            DispatchQueue.main.async {
+                if cell.tag == indexPath.row {
+                    cell.colorImageView.image = image
+                    print("tag:\(cell.tag)")
+                    print( "index:\(indexPath.row)")
+                }
+            }
+            
         }
+        
         return cell
+        
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let detailVC = storyboard?.instantiateViewController(identifier: "detailVC") as? DetailViewController else { return }
+        self.show(detailVC, sender: nil)
+        detailVC.colorId = String(box[indexPath.row].id)
+        detailVC.colorTitle = box[indexPath.row].title
+        detailVC.colorImage = box[indexPath.row].url
         
     }
     
@@ -63,44 +87,41 @@ class SecondViewController: UIViewController,UICollectionViewDelegate,UICollecti
     
     let urlString = "https://jsonplaceholder.typicode.com/photos"
     
+    
     func getData(url : String){
-
+        
         let session = URLSession(configuration: .default)
-
+        
         let request = URLRequest(url: URL(string: url)!)
-
+                
         let task = session.dataTask(with: request) {(data ,response, error) in
             
             let decoder = JSONDecoder()
-
+            
             if let loadData = data {
                 
                 do{
-
-//                    let json = try JSONSerialization.jsonObject(with: loadData, options: .allowFragments)
-
+                    
                     let responseData = try decoder.decode([Box].self , from: loadData)
-                    //print(responseData)
+                    
                     self.box = responseData
                     
                     DispatchQueue.main.async {
+                        
                         self.secondCollectionView.reloadData()
+                        
                     }
-
+                    
                 } catch {
                     print(error)
                 }
+                
             }
-
+            
         }
-
+        
         task.resume()
-
-
+        
     }
-    
-     
-    
-    
     
 }
